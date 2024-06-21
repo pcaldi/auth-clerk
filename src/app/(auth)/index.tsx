@@ -24,10 +24,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 12,
+    backgroundColor: "#010409"
   },
   text: {
     fontSize: 18,
-    color: "#000",
+    color: "#FFF",
     fontWeight: "bold",
   },
   image: {

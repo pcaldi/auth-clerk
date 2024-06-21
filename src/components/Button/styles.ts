@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#000",
+    backgroundColor: "#0d1117",
     gap: 8,
   },
   title: {
@@ -17,6 +17,6 @@ export const styles = StyleSheet.create({
   },
   icon: {
     color: "#FFF",
-    fontSize: 18,
+    fontSize: 24,
   },
 })

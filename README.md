@@ -1,4 +1,4 @@
-<h1 align="center">📱Login Social com Google utilizando Clerk</h1>
+<h1 align="center">📱Login Social com Github utilizando Clerk</h1>
 
 
 
@@ -13,7 +13,7 @@
 
 # 📲 Projeto
 
-- Este projeto fornece uma implementação básica de autenticação social usando o Clerk, um serviço de autenticação moderno, com integração ao Google como provedor de login. Ele permite que os usuários façam login na aplicação usando suas contas do Google.
+- Este projeto fornece uma implementação básica de autenticação social usando o Clerk, um serviço de autenticação moderno, com integração ao Github como provedor de login. Ele permite que os usuários façam login na aplicação usando sua conta do Github .
 
 ---
 
