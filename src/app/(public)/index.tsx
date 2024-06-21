@@ -15,6 +15,8 @@ export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false)
 
   const gitHubOAuth = useOAuth({ strategy: "oauth_github" })
+  const appleOAuth = useOAuth({ strategy: "oauth_apple" })
+  const googleOAuth = useOAuth({ strategy: "oauth_google" })
 
   async function onGitHubSingIn() {
     try {
@@ -39,6 +41,51 @@ export default function SignIn() {
     }
   }
 
+  async function onAppleSingIn() {
+    try {
+      setIsLoading(true)
+
+      const redirectUrl = Linking.createURL("/")
+
+      const oAuthFlow = await appleOAuth.startOAuthFlow({ redirectUrl })
+
+      if (oAuthFlow.authSessionResult?.type === "success") {
+        if (oAuthFlow.setActive) {
+          await oAuthFlow.setActive({ session: oAuthFlow.createdSessionId })
+        }
+      } else {
+        setIsLoading(false)
+      }
+
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false)
+
+    }
+  }
+
+  async function onGoogleSingIn() {
+    try {
+      setIsLoading(true)
+
+      const redirectUrl = Linking.createURL("/")
+
+      const oAuthFlow = await googleOAuth.startOAuthFlow({ redirectUrl })
+
+      if (oAuthFlow.authSessionResult?.type === "success") {
+        if (oAuthFlow.setActive) {
+          await oAuthFlow.setActive({ session: oAuthFlow.createdSessionId })
+        }
+      } else {
+        setIsLoading(false)
+      }
+
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false)
+
+    }
+  }
 
   useEffect(() => {
     WebBrowser.warmUpAsync()
@@ -57,6 +104,21 @@ export default function SignIn() {
         icon="logo-github"
         title="Entrar com Github"
         onPress={onGitHubSingIn}
+        isLoading={isLoading}
+      />
+
+
+      <Button
+        icon="logo-google"
+        title="Entrar com Google"
+        onPress={onGoogleSingIn}
+        isLoading={isLoading}
+      />
+
+      <Button
+        icon="logo-apple"
+        title="Entrar com Apple"
+        onPress={onAppleSingIn}
         isLoading={isLoading}
       />
     </View>
